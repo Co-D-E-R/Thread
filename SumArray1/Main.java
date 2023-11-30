@@ -1,5 +1,6 @@
 import java.lang.Thread;
-import java.util.*;
+import java.util.Scanner;
+// import java.util.*;
 //Sum logic
 class subArrayClass {
     private int sum;
@@ -71,26 +72,26 @@ class nyThread implements Runnable{
 
 public class Main {
     public static void main(String[] args) {
-        // Scanner sc = new Scanner(System.in);
-        // System.out.println("Enter the length of array");
-        // int n = sc.nextInt();
-        // int arr[] = new int[n];
-        // for(int i=0;i<n;i++){
-        //     arr[i]=sc.nextInt();
-        // }
-        int arr[] = { 1, 2, 3, 4, 5,6,7,8,9 };
-        int n= arr.length;
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the length of array");
+        int n = sc.nextInt();
+        int arr[] = new int[n];
+        for(int i=0;i<n;i++){
+            arr[i]=sc.nextInt();
+        }
+        // int arr[] = { 1, 2, 3, 4, 5,6,7,8,9 };
+        // int n= arr.length;
 
         myThread mt1 = new myThread("C1", arr);
-        myThread mt2 = new myThread("C2", arr);
+        // myThread mt2 = new myThread("C2", arr);
 
         nyThread nt1 = new nyThread("M1",n);
 
         try {
             mt1.thrd.join();
             System.out.println("C1 is joined");
-            mt2.thrd.join();
-            System.out.println("C2 is joined");
+            // mt2.thrd.join();
+            // System.out.println("C2 is joined");
             nt1.thr.join();
             System.out.println("M1 is joined");
         } catch (InterruptedException e) {
